@@ -68,16 +68,16 @@ def create_course(course: CreateEditCourse):
     return course
 
 @app.put("/api/v1.0/courses/{course_id}", response_model=Course)
-def edit_task(course_id: int, course: CreateEditCourse):
+def edit_course(course_id: int, course: CreateEditCourse):
     newCourse = {
         'id': course_id,
         'name': course.name,
         'short_description': course.short_description,
         'price': course.price
     }
-    return newTask
+    return newCourse
 
 @app.delete("/api/v1.0/courses/{course_id}", response_model=List[Course], status_code=201)
-def delete_task(task_id: int):
+def delete_course(course_id: int):
     course = list(filter(lambda t: t['id'] != course_id, courses))
-    return corse
+    return course
