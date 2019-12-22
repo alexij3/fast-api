@@ -57,7 +57,7 @@ def get_course(course_id: int):
     return course
 
 @app.post("/api/v1.0/courses", response_model=Course, status_code=201)
-def create_course(course: Course):
+def create_course(course: CreateEditCourse):
     course = {
         'id': courses[-1]['id'] + 1,
         'name': course.name,
